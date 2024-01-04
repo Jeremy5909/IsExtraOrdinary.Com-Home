@@ -4,7 +4,9 @@ export default {
 	theme: {
 		extend: {
 			animation: {
-				'shake': 'shake .5s infinite'
+				'shake': 'shake .5s infinite',
+				'shake-slow': 'shake 1s infinite',
+				'shake-fast': 'shake .25s infinite'
 			},
 			keyframes: {
 				'shake': {
