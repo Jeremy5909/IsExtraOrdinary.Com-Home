@@ -7,9 +7,13 @@ const list = [["random_thing", "https://randomthing.isextraordinary.com"]];
 <Layout>
   <div class="pl-4">
     <ul>
-      <li class="hover:text-gray-400">
-        {list.map(([title, url]) => <a href={url}> {title} </a>)}
-      </li>
+      {
+        list.map(([title, url]) => (
+          <li class="hover:text-gray-400">
+            <a href={url}> &gt; {title} </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </Layout>
