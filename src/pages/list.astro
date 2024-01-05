@@ -1,15 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const list = [["random_thing", "https://randomthing.isextraordinary.com"]];
+const list = [
+  ["random_thing", "https://randomthing.isextraordinary.com"],
+].sort();
 ---
 
 <Layout>
   <div class="pl-4">
     <ul>
+      <li class="group w-fit">
+        &gt;
+        <span class="group-hover:hidden">this_website</span>
+        <span class="opacity-0 group-hover:opacity-100 text-red-300">You're already here</span>
+      </li>
       {
         list.map(([title, url]) => (
-          <li class="hover:text-gray-400">
+          <li class="hover:text-gray-400 w-fit">
             <a href={url}> &gt; {title} </a>
           </li>
         ))
