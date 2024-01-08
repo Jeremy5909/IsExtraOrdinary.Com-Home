@@ -2,6 +2,23 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
+<script lang="ts">
+  const secretCode = "isex";
+  let enteredKeys = "";
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === secretCode[enteredKeys.length]) {
+      enteredKeys += event.key;
+      if (enteredKeys === secretCode) {
+        console.log("Secret code entered! Do something special here.");
+        enteredKeys = "";
+      }
+    } else {
+      enteredKeys = event.key;
+    }
+  });
+</script>
+
 <Layout>
   <h1 class="text-4xl p-2 m-2">
     This Website is <span
