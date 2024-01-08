@@ -2,15 +2,26 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<script lang="ts">
-  const secretCode = "isex";
+<script>
+  const secretCode = "abc";
+  let title: any;
+
+  document.onload = () => {
+    title = document.getElementById("pt1");
+  };
+
   let enteredKeys = "";
+
+  function doTheThing() {
+    console.log("wow");
+    title.contentEditable = "true";
+  }
 
   document.addEventListener("keydown", (event) => {
     if (event.key === secretCode[enteredKeys.length]) {
       enteredKeys += event.key;
       if (enteredKeys === secretCode) {
-        console.log("Secret code entered! Do something special here.");
+        doTheThing();
         enteredKeys = "";
       }
     } else {
@@ -20,8 +31,9 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <Layout>
-  <h1 class="text-4xl p-2 m-2">
+  <h1 id="pt1" class="text-4xl p-2 m-2">
     This Website is <span
+      id="pt2"
       class="bg-gradient-to-br from-purple-300 to-purple-700 bg-clip-text text-transparent"
       >Extraordinary</span
     >
