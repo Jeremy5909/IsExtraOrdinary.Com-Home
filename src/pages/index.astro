@@ -3,37 +3,39 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <script>
-  const secretCode = "abc";
-  let title: any;
+  const title1 = document.getElementById("title");
+  const title2 = document.getElementById("title2");
 
-  document.onload = () => {
-    title = document.getElementById("pt1");
-  };
-
+  const secretCode = "isex";
   let enteredKeys = "";
 
   function doTheThing() {
-    console.log("wow");
-    title.contentEditable = "true";
+    console.log("Secret Key Entered");
+    title1!.innerText = "This Website i s";
+    title2!.innerText = "Extraordinary";
   }
 
   document.addEventListener("keydown", (event) => {
+    // Check if pressed button in secret key (at where we should be)
     if (event.key === secretCode[enteredKeys.length]) {
       enteredKeys += event.key;
+
+      // Entered successfully
       if (enteredKeys === secretCode) {
         doTheThing();
         enteredKeys = "";
       }
     } else {
+      // Reset enteredKeys
       enteredKeys = event.key;
     }
   });
 </script>
 
 <Layout>
-  <h1 id="pt1" class="text-4xl p-2 m-2">
-    This Website is <span
-      id="pt2"
+  <h1 class="text-4xl p-2 m-2">
+    <span id="title">This Website is&nbsp</span><span
+      id="title2"
       class="bg-gradient-to-br from-purple-300 to-purple-700 bg-clip-text text-transparent"
       >Extraordinary</span
     >
